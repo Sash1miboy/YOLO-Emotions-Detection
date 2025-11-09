@@ -219,7 +219,8 @@ def perform_stratified_split(x: np.ndarray, y: np.ndarray, split_ratios: Tuple[f
             order=1,
             sample_distribution_per_fold=[test_vs_val_ratio, 1.0 - test_vs_val_ratio]
         )
-        test_indices, val_indices = next(stratifier_rest.split(x_rest, y_rest))
+        val_indices, test_indices = next(stratifier_rest.split(x_rest, y_rest))
+        
         x_val = x_rest[val_indices]
         x_test = x_rest[test_indices]
     else:
