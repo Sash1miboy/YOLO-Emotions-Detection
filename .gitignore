@@ -5,3 +5,9 @@ yolov9*.pt
 yolov10*.pt
 yolov11*.pt
 yolov12*.pt
+
+yolo8*.pt
+yolo9*.pt
+yolo10*.pt
+yolo11*.pt
+yolo12*.pt
