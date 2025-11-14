@@ -11,3 +11,5 @@ yolo9*.pt
 yolo10*.pt
 yolo11*.pt
 yolo12*.pt
+
+emotion_detection_yolov8_comparison/
