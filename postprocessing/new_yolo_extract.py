@@ -268,7 +268,7 @@ class YOLOClassMetricsExtractor:
         # Derived Metrics
         total_ms = summary_row['Preprocessing (ms)'] + summary_row['Inference (ms)'] + summary_row['Postprocessing (ms)']
         summary_row['Total Time (ms)'] = total_ms
-        summary_row['FPS'] = 1000 / total_ms if total_ms > 0 else 0.0
+        summary_row['FPS'] = round(1000 / total_ms) if total_ms > 0 else 0.0
         
         if summary_row['GFLOPs'] > 0 and summary_row['FPS'] > 0:
             summary_row['Efficiency Score'] = (summary_row['mAP50-95'] * summary_row['FPS']) / summary_row['GFLOPs']
