@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 from postprocessing.new_yolo_extract import YOLOClassMetricsExtractor
 
 if __name__ == "__main__":
@@ -17,7 +18,6 @@ if __name__ == "__main__":
     extractor_class = YOLOClassMetricsExtractor(BASE_DIR, DATA_YAML)
 
     df_results_class = extractor_class.process_all_models(benchmark_samples=891)
-
 
     if df_results_class is not None:
         extractor_class.display_summary()
