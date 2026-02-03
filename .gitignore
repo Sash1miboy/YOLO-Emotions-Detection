@@ -17,3 +17,5 @@ emotion_detection_yolov8_comparison/
 runs/
 
 metrics_res/
+
+mediapipe/
