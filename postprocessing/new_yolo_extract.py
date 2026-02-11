@@ -100,10 +100,18 @@ class YOLOClassMetricsExtractor:
                 if "time" in res.columns and "epoch" in res.columns:
                     res_epoch_sort = res.sort_values("epoch", ascending=False)
                     last_row = res_epoch_sort.iloc[0]
+                    last_time = float(last_row["time"])
 
-                    total_seconds = float(last_row["time"])
+                    max_time = float(res["time"].max())
+
+                    if last_time < max_time:
+                        print("⚠️ Detected time reset (resume training)")
+                        total_seconds = max_time + last_time
+                    else:
+                        total_seconds = last_time
 
                     total_seconds = int(round(total_seconds))
+
                     hours = total_seconds // 3600
                     minutes = (total_seconds % 3600) // 60
                     seconds = total_seconds % 60
@@ -111,7 +119,7 @@ class YOLOClassMetricsExtractor:
                     time_str = f"{hours:02}:{minutes:02}:{seconds:02}"
 
                     train_metrics["Training Time"] = time_str  # type: ignore
-                    print(f"⏱️ Training Time (Last Epoch): {time_str}")
+                    print(f"⏱️ Training Time (Accumulated): {time_str}")
 
             except Exception as err:
                 print(
