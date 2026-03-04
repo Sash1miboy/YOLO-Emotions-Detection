@@ -4,8 +4,9 @@ from preprocessing.analyze_dataset import analyze_dataset
 from preprocessing.remove_duplicates import remove_duplicates
 from preprocessing.stratified_split import stratified_split
 
-path = Path(r"'data.yaml' path dari dataset")
-out_path = Path(r"lokasi yang anda inginkan untuk dataset yang telah di preprocessing")
+path = Path(r"E:\thesis-model\Dataset\AffectNet-YOLO-Format\data.yaml")
+out_path = Path(r"E:\thesis-model\Dataset\AffectNet-YOLO-Format-Preprocessed")
+
 
 splits = (0.7, 0.2, 0.1)
 
@@ -19,8 +20,8 @@ remove_duplicates(
     max_workers=8,
     similiarity_threshold=15,
     exact_threshold=3,
-    preview_only=True,  # ubah ke false kalau ingin hapus data (awas lama bisa 10 menitan)
-    use_full_scan=False,
+    preview_only=False,  # ubah ke false kalau ingin hapus data (awas lama bisa 10 menitan)
+    use_full_scan=True,
 )
 
 print("\nProses Stratified Spltiing!\n")

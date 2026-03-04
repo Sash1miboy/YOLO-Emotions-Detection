@@ -162,17 +162,3 @@ def yolo_to_bbox(img_w, img_h, x, y, w, h):
 if __name__ == "__main__":
     process_dataset()
     create_yaml()
-    # visualize_yolo_annotations(
-    #     image_dir=r"E:\thesis-model\Dataset\FER-2013-YOLO-Format\images\train",
-    #     label_dir=r"E:\thesis-model\Dataset\FER-2013-YOLO-Format\labels\train",
-    #     save_vis_path=r"E:\thesis-model\Dataset\FER-2013-YOLO-Format\vis\train",
-    #     emotion_map={
-    #         0: "angry",
-    #         1: "disgust",
-    #         2: "fear",
-    #         3: "happy",
-    #         4: "neutral",
-    #         5: "sad",
-    #         6: "surprise",
-    #     },
-    # )
